@@ -43,6 +43,7 @@ export class MetricCollector {
     registers: Registry[] = [globalRegister],
   ) {
     const { logger, autoDiscover, redis, metricPrefix, ...bullOpts } = opts;
+    logger.info(`DEBUG redis url: ${redis}`);
     this.redisUri = redis;
     this.defaultRedisClient = new IoRedis(this.redisUri);
     this.defaultRedisClient.setMaxListeners(32);
